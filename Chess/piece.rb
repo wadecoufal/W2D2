@@ -1,4 +1,16 @@
 class Piece
+  attr_reader :color, :board, :pos
+  # color - symbol, board - board, pos - array of two Integers
+  def initialize(color, board, pos)
+    @color = color
+    @board = board
+    @pos = pos
+  end
+
+
+  def moves
+
+  end
 
   def symbol
     :Q
@@ -8,17 +20,6 @@ class Piece
 
   def inspect
     "P"
-  end
-
-end
-
-
-class NullPiece < Piece
-
-  #TODO
-
-  def symbol
-    nil
   end
 
 end
