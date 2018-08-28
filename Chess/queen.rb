@@ -4,5 +4,4 @@ class Queen < Piece
   def move_dir
     Slideable.HORIZONTAL_DIR + Slideable.DIAGONAL_DIR
   end
-
 end

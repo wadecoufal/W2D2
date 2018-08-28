@@ -43,6 +43,10 @@ class Board
     self[start_pos] = nil
   end
 
+  def valid_move?()
+
+  end
+
 
 
 

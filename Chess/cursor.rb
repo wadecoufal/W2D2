@@ -28,10 +28,6 @@ MOVES = {
   right: [0, 1],
   up: [-1, 0],
   down: [1, 0],
-  left_up: [-1,-1],
-  left_down: [1,-1],
-  right_up: [-1,1],
-  right_down: [1,1]
 }
 
 class Cursor
