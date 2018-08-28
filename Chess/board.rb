@@ -9,7 +9,7 @@ class Board
   end
 
   def default_board
-    Array.new(8) {Array.new(8)}
+    Array.new(8) {Array.new(8, NullPiece.new)}
   end
 
   def fill_board
@@ -19,6 +19,10 @@ class Board
         self[pos] = Piece.new
       end
     end
+  end
+
+  def acc_pos(pos)
+    @board[pos]
   end
 
   def [](pos)
