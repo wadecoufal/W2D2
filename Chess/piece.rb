@@ -1,3 +1,4 @@
+
 class Piece
   attr_reader :color, :board, :pos
   # color - symbol, board - board, pos - array of two Integers
@@ -15,8 +16,6 @@ class Piece
   def symbol
     :Q
   end
-
-
 
   def inspect
     "P"

@@ -1,4 +1,8 @@
 require_relative 'piece'
+require_relative 'queen'
+require_relative 'bishop'
+require_relative 'rook'
+require_relative 'nullpiece'
 
 class Board
 
@@ -9,16 +13,33 @@ class Board
   end
 
   def default_board
-    Array.new(8) {Array.new(8, NullPiece.new)}
+    #TODO
+    Array.new(8) {Array.new(8)}
   end
 
   def fill_board
-    [0,1,6,7].each do |row|
+    (2..5).each do |row|
       (0..7).each do |col|
         pos = [row, col]
-        self[pos] = Piece.new
+        self[pos] = NullPiece.instance
       end
     end
+
+    [0,1].each do |row|
+      (0..7).each do |col|
+        pos = [row, col]
+        self[pos] = Piece.new(:orange, self, [row, col])
+      end
+    end
+
+    [6,7].each do |row|
+      (0..7).each do |col|
+        pos = [row, col]
+        self[pos] = Piece.new(:blue, self, [row, col])
+      end
+    end
+
+    self[[3, 4]] = Rook.new(:orange, self, [3, 4])
   end
 
   def acc_pos(pos)
@@ -43,11 +64,21 @@ class Board
     self[start_pos] = nil
   end
 
-  def valid_move?()
+  def valid_pos?(piece, pos) # [3,3]
+    row, col = pos
+    return false unless row.between?(0,7) and col.between?(0,7)
+    return false if self[pos].color == piece.color
 
+    # TODO
+    true
   end
 
 
+end
 
-
+if __FILE__ == $0
+  b = Board.new
+  queen = b[[3, 4]]
+  p b
+  p queen.moves
 end
